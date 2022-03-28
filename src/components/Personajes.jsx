@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  anteriorPersonajesAccion,
   obtenerPersonajesAccion,
   siguenterPersonajesAccion,
 } from "../redux/ricksDucks";
@@ -11,13 +12,25 @@ function Personajes() {
   const personajes = useSelector((store) => store.personajes.array);
 
   return (
-    <div>
-      <button onClick={() => dispatch(obtenerPersonajesAccion())}>
-        Personajes
-      </button>
-      <button onClick={() => dispatch(siguenterPersonajesAccion())}>
-        Siguiente
-      </button>
+    <div className="container">
+      <br />
+      <nav>
+        <ul className="pagination gap-2 d-md-flex justify-content-center">
+          <li className="page-item">
+            <button className="btn btn-dark" onClick={() => dispatch(obtenerPersonajesAccion())}>
+              Personajes
+            </button>
+            <button className="btn btn-dark" onClick={() => dispatch(anteriorPersonajesAccion())}>
+              Anterior
+            </button>
+            <button className="btn btn-dark" onClick={() => dispatch(siguenterPersonajesAccion())}>
+              Siguiente
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <br />
       <div className="row">
         {personajes.map((item) => (
           <div key={item.id} className="col mb-4">
