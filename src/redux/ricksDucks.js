@@ -39,10 +39,10 @@ export const obtenerPersonajesAccion = () => async (dispatch, getState) => {
 };
 
 export const siguenterPersonajesAccion = () => async (dispatch, getState) => {
-  const page = getState().personajes.page;
-  console.log("getState , "+ getState().personajes.page)
-  const siguiente = page + 1;
-  console.log("siguiente "+siguiente)
+  
+    const page = getState().personajes.page;
+ 
+    const siguiente = page + 1;  
 
   try {
     const respuesta = await axios.get(
