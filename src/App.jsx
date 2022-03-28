@@ -1,7 +1,8 @@
-import Personajes from "./components/Personajes";
+//import Personajes from "./components/Personajes";
 import { Provider } from "react-redux";
 import generateStore from "./redux/store";
 import Encabezado from "./components/Encabezado";
+import Episodios from "./components/Episodios";
 
 function App() {
 
@@ -11,7 +12,7 @@ function App() {
   return (
     <Provider store={store} >
       <Encabezado />
-      <Personajes />
+      <Episodios />
     </Provider>
   );
 }

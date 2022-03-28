@@ -1,10 +1,12 @@
 import {createStore, combineReducers, compose, applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
+import episodioReducer from './episodioDucks';
 
 import rickReducer from './ricksDucks'
 
 const rootReducer = combineReducers({
-    personajes: rickReducer
+    personajes: rickReducer,
+    episodios: episodioReducer
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
