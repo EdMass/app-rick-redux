@@ -1,11 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
-import React from 'react'
 import { anteriorEpisodioAccion, obtenerEpisodioAccion, siguenterEpisodioAccion } from "../redux/episodioDucks";
+import React, { useEffect } from "react";
 
 function Episodios() {
 const dispatch = useDispatch();
 
   const episodios = useSelector((store) => store.episodios.array);
+
+  useEffect(() => {
+    dispatch(obtenerEpisodioAccion()) 
+  }, [])
+  
 
   return (
     <div className="container">
@@ -13,9 +18,9 @@ const dispatch = useDispatch();
       <nav>
         <ul className="pagination gap-2 d-md-flex justify-content-center">
           <li className="page-item">
-            <button className="btn btn-dark" onClick={() => dispatch(obtenerEpisodioAccion())}>
+            {/* <button className="btn btn-dark" onClick={() => dispatch(obtenerEpisodioAccion())}>
               Episodios
-            </button>
+            </button> */}
             <button className="btn btn-dark" onClick={() => dispatch(anteriorEpisodioAccion())}>
               Anterior
             </button>

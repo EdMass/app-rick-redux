@@ -78,18 +78,22 @@ export const siguenterPersonajesAccion = () => async (dispatch, getState) => {
 
 export const anteriorPersonajesAccion = () => async (dispatch, getState) => {
   const page = getState().personajes.page;
-  const anterior = page -1
+  function anterior() { 
+      if(page<=1){
+          return page
+      }return page -1
+   }
 
   
   try {
     const respuesta = await axios.get(
-      `https://rickandmortyapi.com/api/character?page=${anterior}`
+      `https://rickandmortyapi.com/api/character?page=${anterior()}`
     );
     dispatch({
       type: ANTERIOR_PERSONAJES_OK,
       payload: {
         array: respuesta.data.results,
-        page: anterior,
+        page: anterior(),
       },
     });
   } catch (error) {

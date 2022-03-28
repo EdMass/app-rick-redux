@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   anteriorPersonajesAccion,
@@ -8,8 +8,12 @@ import {
 
 function Personajes() {
   const dispatch = useDispatch();
-
+ 
   const personajes = useSelector((store) => store.personajes.array);
+
+  useEffect(() => {
+    dispatch(obtenerPersonajesAccion());
+  },[])
 
   return (
     <div className="container">
@@ -17,9 +21,9 @@ function Personajes() {
       <nav>
         <ul className="pagination gap-2 d-md-flex justify-content-center">
           <li className="page-item">
-            <button className="btn btn-dark" onClick={() => dispatch(obtenerPersonajesAccion())}>
+           {/*  <button className="btn btn-dark" onClick={() => dispatch(obtenerPersonajesAccion())}>
               Personajes
-            </button>
+            </button> */}
             <button className="btn btn-dark" onClick={() => dispatch(anteriorPersonajesAccion())}>
               Anterior
             </button>

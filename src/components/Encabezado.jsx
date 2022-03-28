@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Encabezado = () => {
   return (
@@ -7,9 +8,8 @@ const Encabezado = () => {
         <a className="navbar-brand text-uppercase" href="/">
           Rick and Morty App
         </a>
-        <a className="navbar-brand " href="#">Episodios</a>
-        <a className="navbar-brand " href="#">Localizaciones</a>
-        <a className="navbar-brand " href="#">Favoritos</a>
+        <a className="navbar-brand " href="/episodios">Episodios</a>
+        <a className="navbar-brand " href="/" >Personajes</a>
       </div>
     </nav>
   );

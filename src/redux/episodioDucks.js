@@ -78,18 +78,22 @@ export const siguenterEpisodioAccion = () => async (dispatch, getState) => {
 
 export const anteriorEpisodioAccion = () => async (dispatch, getState) => {
   const page = getState().episodios.page;
-  const anterior = page -1
+  function anterior() { 
+    if(page<=1){
+        return page
+    }return page -1
+ }
 
   
   try {
     const respuesta = await axios.get(
-      `https://rickandmortyapi.com/api/episode?page=${anterior}`
+      `https://rickandmortyapi.com/api/episode?page=${anterior()}`
     );
     dispatch({
       type: ANTERIOR_EPISODIO_OK,
       payload: {
         array: respuesta.data.results,
-        page: anterior,
+        page: anterior(),
       },
     });
   } catch (error) {
