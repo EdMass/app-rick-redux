@@ -5,11 +5,11 @@ const Encabezado = () => {
   return (
     <nav className="navbar navbar-dark bg-dark">
       <div className="container">
-        <a className="navbar-brand text-uppercase" href="/">
+        <Link className="navbar-brand text-uppercase" to="/">
           Rick and Morty App
-        </a>
-        <a className="navbar-brand " href="/episodios">Episodios</a>
-        <a className="navbar-brand " href="/" >Personajes</a>
+        </Link>
+        <Link className="navbar-brand " to="/episodios">Episodios</Link>
+        <Link className="navbar-brand " to="/" >Personajes</Link>
       </div>
     </nav>
   );
